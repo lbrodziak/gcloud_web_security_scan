@@ -17,16 +17,19 @@ This project showcases the deployment, scanning and remediation of XSS vulnerabi
 For WSS to work properly we first need to set a static ip address using command: ```gcloud compute addresses create ip_address_name --region="REGION"``` where "REGION" is the region we would like to create the ip address in.
  <br/>
  <p align="center">
-   <img src="https://github.com/user-attachments/assets/d1bd1d64-1985-469d-9143-45a92934a024" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
+   <img src="https://github.com/user-attachments/assets/d1bd1d64-1985-469d-9143-45a92934a024" height="120%" width="120%" alt="Create static ip"/>
  </p>
 <br />
+Then we need to verify if the address was created properly
+<br/> <br>
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/1adf9a94-ac81-4ee0-abd4-f13d3f109ffb" height="80%" width="80%" alt="IP verification"/>
+</p>
 <br />
-Intercepting packets:  <br/>
-<img src="https://imgur.com/8hhRfYc.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Sample output of packets.txt file: <br/>
+Next step is to create vm instance that will hos our web app. We can do this using command: ```gcloud compute instances create vm-instance-name --address=static-ip --no-service-account --no-scopes --machine-type=e2-micro --zone="ZONE" --metadata=startup-script='apt-get update; apt-get install -y python3-flask' ``` This command will create vm instance and give it the static ip we have created. The metadata part constains a script that will automatically install Flask upon VM startup. After the VM is created we can verify it under Compute Engine > VM instances in GCP navigation menu: <br/><br/> <p align="center">
+<img src="https://github.com/user-attachments/assets/a5a5a316-80b9-4a32-9604-5926a566b00f" height="80%" width="80%" alt="VM verify"/></p>
+
+
 <img src="https://imgur.com/W8LA49s.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 
 
