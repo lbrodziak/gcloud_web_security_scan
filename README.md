@@ -28,8 +28,17 @@ Then we need to verify if the address was created properly
 <br />
 Next step is to create vm instance that will hos our web app. We can do this using command: ```gcloud compute instances create vm-instance-name --address=static-ip --no-service-account --no-scopes --machine-type=e2-micro --zone="ZONE" --metadata=startup-script='apt-get update; apt-get install -y python3-flask' ``` This command will create vm instance and give it the static ip we have created. The metadata part constains a script that will automatically install Flask upon VM startup. After the VM is created we can verify it under Compute Engine > VM instances in GCP navigation menu: <br/><br/> <p align="center">
 <img src="https://github.com/user-attachments/assets/a5a5a316-80b9-4a32-9604-5926a566b00f" height="80%" width="80%" alt="VM verify"/></p>
+<br />
+Next step is to create vm instance that will hos our web app. We can do this using command: ```gcloud compute instances create vm-instance-name --address=static-ip --no-service-account --no-scopes --machine-type=e2-micro --zone="ZONE" --metadata=startup-script='apt-get update; apt-get install -y python3-flask' ``` This command will create vm instance and give it the static ip we have created. The metadata part constains a script that will automatically install Flask upon VM startup. After the VM is created we can verify it under Compute Engine > VM instances in GCP navigation menu: <br/><br/> <p align="center">
+<img src="https://github.com/user-attachments/assets/a5a5a316-80b9-4a32-9604-5926a566b00f" height="80%" width="80%" alt="VM verify"/></p>
+<br/>
+Then we SSH into our instance and simply upload the app.py file:
+<br/><br/> <p align="center">
+ <img src="https://github.com/user-attachments/assets/e8db15f1-0cdd-448e-8d87-8fb7d7f39027" height="80%" width="80%" alt="VM verify"/></p>
+<br/>
+<br/>
 
-
-<img src="https://imgur.com/W8LA49s.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-
-
+In order to run the app we perform ```python3 app.py``` command
+<br/><br/> <p align="center">
+ <img src="https://github.com/user-attachments/assets/f9c192ff-ec4c-4682-a484-9c972f55cb2d" height="80%" width="80%" alt="VM verify"/></p>
+<br/>
