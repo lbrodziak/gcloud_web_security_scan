@@ -59,3 +59,14 @@ After hitting Save and running the scan we can see that there was an XSS vulnera
 <br/><br/> <p align="center">
  <img src="https://github.com/user-attachments/assets/63e0f920-2967-4164-82df-665807fbf27c" height="80%" width="80%" alt="VM verify"/></p>
 <br/>
+To remediate the XSS we can use flask method called escape that converts characters &, <, >, ‘, and ” in string to HTML-safe sequences:
+<br/><br/> <p align="center">
+  <img src="https://github.com/user-attachments/assets/420789ed-e2e1-44b5-bdd3-de790e91e3fa" height="80%" width="80%" alt="VM verify"/></p>
+<br/>
+When we run the app again and try to paste javascript in search box, instad of previous alert we will get the following result:
+<br/><br/> <p align="center">
+ <img src="https://github.com/user-attachments/assets/a10d60d8-8200-4800-9dfa-8f4700ec9121" height="80%" width="80%" alt="VM verify"/></p>
+<br/>
+Now when we run our WSS scan again we can see that indeed the vulnerability has been patched:
+<br/><br/> <p align="center">
+  <img src="https://github.com/user-attachments/assets/bd50e15e-5088-4085-864a-7e221a95a6da" height="80%" width="80%" alt="VM verify"/>
